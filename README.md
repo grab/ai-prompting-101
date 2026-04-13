@@ -1,64 +1,44 @@
-Example plain HTML site using GitLab Pages.
+# AI Prompting — Best Practice
 
-Learn more about GitLab Pages at https://pages.gitlab.io and the official
-documentation https://docs.gitlab.com/ce/user/project/pages/.
+A short, warm, beginner-friendly workshop site that teaches young adults (18–25)
+how to get real value out of AI in daily life, studies, and early career.
 
----
+Built for a 3-week workshop sprint across three squads:
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+- 🏠 **Life Admin** — mental-load hacks, budgeting, planning
+- 📚 **Learning** — AI as a personal tutor, study habits, research
+- 💼 **Career** — resumes, LinkedIn, interview prep
+- 🙌 **Facilitators** — on-the-ground guides who run the workshop
 
-- [GitLab CI](#gitlab-ci)
-- [GitLab User or Group Pages](#gitlab-user-or-group-pages)
-- [Did you fork this project?](#did-you-fork-this-project)
-- [Troubleshooting](#troubleshooting)
+## The framework: CARE
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+We teach one mnemonic and stick to it.
 
-## GitLab CI
+- **C** — Context: tell AI about you and your situation
+- **A** — Ask: say exactly what you want done
+- **R** — Role: tell AI who to be
+- **E** — Expected output: describe the shape of what you want back
 
-This project's static Pages are built by [GitLab CI][ci], following the steps
-defined in [`.gitlab-ci.yml`](.gitlab-ci.yml):
+## Pages
 
+- `/` — pick your squad, 60-second starter
+- `/care` — the CARE framework with an inline mini-builder
+- `/playbooks` — copy-paste prompts grouped by squad
+- `/practice` — write a prompt, get instant CARE feedback
+- `/quiz` — 10-question knowledge check
+- `/safety` — privacy, hallucinations, academic-integrity rules
+- `/facilitators` — run-of-show, icebreakers, troubleshooting
+
+## Run locally
+
+```bash
+npm install
+npm run dev
 ```
-image: busybox
 
-pages:
-  stage: deploy
-  script:
-  - echo 'Nothing to do...'
-  artifacts:
-    paths:
-    - public
-    expire_in: 1 day
-  rules:
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
-```
+Opens at [http://localhost:3000](http://localhost:3000).
 
-The above example expects to put all your HTML files in the `public/` directory.
+## Deploy
 
-## GitLab User or Group Pages
-
-To use this project as your user/group website, you will need one additional
-step: just rename your project to `namespace.gitlab.io`, where `namespace` is
-your `username` or `groupname`. This can be done by navigating to your
-project's **Settings**.
-
-Read more about [user/group Pages][userpages] and [project Pages][projpages].
-
-## Did you fork this project?
-
-If you forked this project for your own use, please go to your project's
-**Settings** and remove the forking relationship, which won't be necessary
-unless you want to contribute back to the upstream project.
-
-## Troubleshooting
-
-1. CSS is missing! That means that you have wrongly set up the CSS URL in your
-   HTML files. Have a look at the [index.html] for an example.
-
-[ci]: https://about.gitlab.com/gitlab-ci/
-[index.html]: https://gitlab.com/pages/plain-html/blob/master/public/index.html
-[userpages]: https://docs.gitlab.com/ce/user/project/pages/introduction.html#user-or-group-pages
-[projpages]: https://docs.gitlab.com/ce/user/project/pages/introduction.html#project-pages
+Push to `master`. GitLab CI will build the Next.js static export and publish to
+GitLab Pages automatically via `.gitlab-ci.yml`.
