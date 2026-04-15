@@ -9,9 +9,9 @@ export const runOfShow: RunOfShowItem[] = [
   },
   {
     time: "0:10 – 0:20",
-    title: "The CARE framework (walkthrough)",
+    title: "The RIPE framework (walkthrough)",
     notes:
-      "Open /care on the screen. Walk through Context → Ask → Role → Expected. Use one live example (pick one from /playbooks). Keep it under 10 min.",
+      "Open /ripe on the screen. Walk through Role → Instructions → Parameters → Expected. Use one live example (pick one from /playbooks). Keep it under 10 min.",
   },
   {
     time: "0:20 – 0:35",
@@ -62,7 +62,7 @@ export const troubleshooting: { issue: string; fix: string }[] = [
   },
   {
     issue: "AI gives a really bad answer and the participant looks defeated.",
-    fix: "Good! That's the best teaching moment. Sit with them, look at their prompt, spot which CARE letter is missing, and let them rewrite it. The 'aha' is here.",
+    fix: "Good! That's the best teaching moment. Sit with them, look at their prompt, spot which RIPE letter is missing, and let them rewrite it. The 'aha' is here.",
   },
   {
     issue: "A participant won't stop asking 'but is this allowed for my uni assignment?'",

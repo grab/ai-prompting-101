@@ -1,42 +1,42 @@
 import { QuizQuestion } from "@/types";
 
 export const quizQuestions: QuizQuestion[] = [
-  // Context
+  // Parameters
   {
-    id: "c-1",
+    id: "p-1",
     type: "multiple-choice",
-    question: "Why does giving AI more Context usually help?",
+    question: "Why does giving AI more Parameters usually help?",
     options: [
       { id: "a", text: "It makes the prompt look more impressive." },
-      { id: "b", text: "Without context, AI guesses — and often guesses wrong about you." },
+      { id: "b", text: "Without parameters, AI guesses — and often guesses wrong about you." },
       { id: "c", text: "AI charges less when the prompt is longer." },
       { id: "d", text: "It's polite." },
     ],
     correctAnswer: "b",
     explanation:
-      "When AI doesn't know your situation, it fills gaps with generic patterns from training data. Real context = less guessing, more useful answers.",
-    concept: "context",
+      "When AI doesn't know your situation, it fills gaps with generic patterns from training data. Real parameters = less guessing, more useful answers.",
+    concept: "parameters",
   },
   {
-    id: "c-2",
+    id: "p-2",
     type: "identify-issue",
     question: "What's the main issue with this prompt?",
     context: "Give me advice on managing money.",
     options: [
       { id: "a", text: "It's missing who the AI should be." },
-      { id: "b", text: "It has no context — income, goals, situation." },
+      { id: "b", text: "It has no parameters — income, goals, situation." },
       { id: "c", text: "The output format isn't specified." },
-      { id: "d", text: "All of the above, but no context is the biggest." },
+      { id: "d", text: "All of the above, but no parameters is the biggest." },
     ],
     correctAnswer: "d",
     explanation:
-      "All four CARE letters are missing. Context (income, costs, goals) is the biggest gap — without it, you'll get generic 'make a budget' advice.",
-    concept: "context",
+      "All four RIPE letters are missing. Parameters (income, costs, goals) is the biggest gap — without it, you'll get generic 'make a budget' advice.",
+    concept: "parameters",
   },
   {
-    id: "c-3",
+    id: "p-3",
     type: "multiple-choice",
-    question: "Which kind of context is MOST useful to include?",
+    question: "Which kind of parameters are MOST useful to include?",
     options: [
       { id: "a", text: "Your complete life story." },
       { id: "b", text: "Constraints, feelings, and the 1–2 things that would change the answer." },
@@ -45,15 +45,15 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     correctAnswer: "b",
     explanation:
-      "Useful context isn't quantity — it's relevance. The stuff that would change the answer: your budget, your time, your constraints, your feelings.",
-    concept: "context",
+      "Useful parameters aren't quantity — it's relevance. The stuff that would change the answer: your budget, your time, your constraints, your feelings.",
+    concept: "parameters",
   },
 
-  // Ask
+  // Instructions
   {
-    id: "a-1",
+    id: "i-1",
     type: "multiple-choice",
-    question: "Which of these is a proper Ask?",
+    question: "Which of these is a proper Instruction?",
     options: [
       { id: "a", text: "Help me with my resume." },
       { id: "b", text: "Can you look at my resume please." },
@@ -62,13 +62,13 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     correctAnswer: "c",
     explanation:
-      "Option C uses a specific verb (rewrite) and a specific goal (impact vs activity). That's a real ask — the others are wishes.",
-    concept: "ask",
+      "Option C uses a specific verb (rewrite) and a specific goal (impact vs activity). That's a real instruction — the others are wishes.",
+    concept: "instructions",
   },
   {
-    id: "a-2",
+    id: "i-2",
     type: "identify-issue",
-    question: "How would you improve this prompt's Ask?",
+    question: "How would you improve this prompt's Instructions?",
     context: "You're a career coach. Help me.",
     options: [
       { id: "a", text: "Remove the role." },
@@ -78,8 +78,8 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     correctAnswer: "b",
     explanation:
-      "'Help me' is vague — AI will guess. 'Rewrite my LinkedIn headline in 10 words' is an actual ask.",
-    concept: "ask",
+      "'Help me' is vague — AI will guess. 'Rewrite my LinkedIn headline in 10 words' is an actual instruction.",
+    concept: "instructions",
   },
 
   // Role
@@ -138,7 +138,7 @@ export const quizQuestions: QuizQuestion[] = [
     options: [
       { id: "a", text: "Format, length, and vibe." },
       { id: "b", text: "The role." },
-      { id: "c", text: "The context." },
+      { id: "c", text: "The parameters." },
       { id: "d", text: "Nothing — it's fine." },
     ],
     correctAnswer: "a",

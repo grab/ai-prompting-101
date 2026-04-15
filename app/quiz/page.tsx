@@ -88,9 +88,9 @@ export default function QuizPage() {
 
     const score = Math.round((correct / questions.length) * 100);
     const conceptNames: Record<string, string> = {
-      context: "Context — giving AI your situation",
-      ask: "Ask — saying exactly what you want",
       role: "Role — telling AI who to be",
+      instructions: "Instructions — saying exactly what you want",
+      parameters: "Parameters — giving AI your details",
       expected: "Expected — describing the output",
       safety: "Safety — being careful with AI",
       "invention-ratio": "Letting AI invent less",
@@ -120,7 +120,7 @@ export default function QuizPage() {
             <Brain size={30} className="text-white" />
           </div>
           <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-            Test your CARE.
+            Test your RIPE.
           </h1>
           <p className="text-slate-600 mb-8">
             10 questions. No pressure. Passing is {quizConfig.passingScore}%, but
@@ -134,9 +134,9 @@ export default function QuizPage() {
             </h3>
             <ul className="space-y-2 text-sm text-slate-700">
               {[
-                "C — Context",
-                "A — Ask",
                 "R — Role",
+                "I — Instructions",
+                "P — Parameters",
                 "E — Expected output",
                 "Plus a few safety calls",
               ].map((t) => (
@@ -179,7 +179,7 @@ export default function QuizPage() {
           </motion.div>
 
           <h1 className="text-3xl font-bold text-slate-900 mb-2">
-            {passed ? "You've got CARE." : "Keep going — you're close."}
+            {passed ? "You've got RIPE." : "Keep going — you're close."}
           </h1>
           <p className="text-slate-600 mb-6">
             {passed
@@ -229,8 +229,8 @@ export default function QuizPage() {
               <RotateCcw size={14} className="mr-2" />
               Retake
             </Button>
-            <a href="/care">
-              <Button variant="ghost">Review CARE</Button>
+            <a href="/ripe">
+              <Button variant="ghost">Review RIPE</Button>
             </a>
           </div>
         </div>

@@ -3,38 +3,38 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Copy, Check } from "lucide-react";
-import { careSections, careOrder } from "@/data";
+import { ripeSections, ripeOrder } from "@/data";
 import { Button, Card, Badge } from "@/components/ui";
-import { CareKey, CarePrompt } from "@/types";
+import { RipeKey, RipePrompt } from "@/types";
 
-const letterGradient: Record<CareKey, string> = {
-  context: "from-rose-400 to-rose-600",
-  ask: "from-violet-400 to-violet-600",
-  role: "from-amber-400 to-amber-600",
+const letterGradient: Record<RipeKey, string> = {
+  role: "from-rose-400 to-rose-600",
+  instructions: "from-violet-400 to-violet-600",
+  parameters: "from-amber-400 to-amber-600",
   expected: "from-pink-400 to-rose-500",
 };
 
-const letterBg: Record<CareKey, string> = {
-  context: "bg-rose-100 text-rose-900",
-  ask: "bg-violet-100 text-violet-900",
-  role: "bg-amber-100 text-amber-900",
+const letterBg: Record<RipeKey, string> = {
+  role: "bg-rose-100 text-rose-900",
+  instructions: "bg-violet-100 text-violet-900",
+  parameters: "bg-amber-100 text-amber-900",
   expected: "bg-pink-100 text-pink-900",
 };
 
-export default function CarePage() {
-  const [prompt, setPrompt] = useState<CarePrompt>({
-    context: "",
-    ask: "",
+export default function RipePage() {
+  const [prompt, setPrompt] = useState<RipePrompt>({
     role: "",
+    instructions: "",
+    parameters: "",
     expected: "",
   });
   const [copied, setCopied] = useState(false);
 
-  const fullPrompt = [prompt.role, prompt.context, prompt.ask, prompt.expected]
+  const fullPrompt = [prompt.role, prompt.parameters, prompt.instructions, prompt.expected]
     .filter(Boolean)
     .join("\n\n");
 
-  const completed = careOrder.filter((k) => prompt[k].trim().length > 0).length;
+  const completed = ripeOrder.filter((k) => prompt[k].trim().length > 0).length;
 
   const handleCopy = async () => {
     if (!fullPrompt) return;
@@ -51,7 +51,7 @@ export default function CarePage() {
             The framework
           </Badge>
           <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-            Every good prompt has <span className="text-rose-600">CARE</span>.
+            Every good prompt has <span className="text-rose-600">RIPE</span>.
           </h1>
           <p className="text-slate-600 max-w-2xl mx-auto">
             Four pieces. Skip one and AI starts guessing. Include all four and
@@ -61,7 +61,7 @@ export default function CarePage() {
 
         {/* The 4 sections */}
         <div className="space-y-4 mb-12">
-          {careSections.map((section) => (
+          {ripeSections.map((section) => (
             <Card
               key={section.key}
               variant="bordered"
@@ -144,7 +144,7 @@ export default function CarePage() {
           </p>
 
           <div className="grid md:grid-cols-2 gap-4">
-            {careSections.map((section) => (
+            {ripeSections.map((section) => (
               <div key={section.key}>
                 <label className="flex items-center gap-2 text-sm font-medium text-slate-700 mb-2">
                   <span

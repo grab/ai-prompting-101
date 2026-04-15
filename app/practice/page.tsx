@@ -16,7 +16,7 @@ import { Button, Card, Badge, ProgressBar } from "@/components/ui";
 import {
   PracticeScenario,
   PracticeFeedback,
-  CareKey,
+  RipeKey,
 } from "@/types";
 
 function ScenarioCard({
@@ -62,7 +62,7 @@ function ScenarioCard({
   );
 }
 
-function CareBar({
+function RipeBar({
   label,
   present,
   quality,
@@ -97,10 +97,10 @@ function CareBar({
   );
 }
 
-const careLabels: Record<CareKey, string> = {
-  context: "C",
-  ask: "A",
+const ripeLabels: Record<RipeKey, string> = {
   role: "R",
+  instructions: "I",
+  parameters: "P",
   expected: "E",
 };
 
@@ -136,7 +136,7 @@ export default function PracticePage() {
             Write your own. We'll score it.
           </h1>
           <p className="text-slate-600 max-w-2xl mx-auto">
-            Pick a real-life scenario, write a prompt using CARE, and get
+            Pick a real-life scenario, write a prompt using RIPE, and get
             instant feedback on what's missing.
           </p>
         </div>
@@ -213,7 +213,7 @@ export default function PracticePage() {
               <textarea
                 value={userPrompt}
                 onChange={(e) => setUserPrompt(e.target.value)}
-                placeholder="Write your prompt here — remember CARE: Context, Ask, Role, Expected."
+                placeholder="Write your prompt here — remember RIPE: Role, Instructions, Parameters, Expected."
                 className="w-full h-40 p-4 border border-rose-100 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-rose-400 focus:border-transparent text-slate-700"
                 disabled={!!feedback}
               />
@@ -259,13 +259,13 @@ export default function PracticePage() {
                     />
 
                     <div className="grid grid-cols-2 gap-4 mb-6">
-                      {(["context", "ask", "role", "expected"] as CareKey[]).map(
+                      {(["role", "instructions", "parameters", "expected"] as RipeKey[]).map(
                         (k) => (
-                          <CareBar
+                          <RipeBar
                             key={k}
-                            label={careLabels[k]}
-                            present={feedback.careAnalysis[k].present}
-                            quality={feedback.careAnalysis[k].quality}
+                            label={ripeLabels[k]}
+                            present={feedback.ripeAnalysis[k].present}
+                            quality={feedback.ripeAnalysis[k].quality}
                           />
                         )
                       )}

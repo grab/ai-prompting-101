@@ -1,15 +1,15 @@
-// CARE framework
-export type CareKey = "context" | "ask" | "role" | "expected";
+// RIPE framework
+export type RipeKey = "role" | "instructions" | "parameters" | "expected";
 
-export interface CarePrompt {
-  context: string;
-  ask: string;
+export interface RipePrompt {
   role: string;
+  instructions: string;
+  parameters: string;
   expected: string;
 }
 
-export interface CareSection {
-  key: CareKey;
+export interface RipeSection {
+  key: RipeKey;
   label: string;
   shortLabel: string;
   tagline: string;
@@ -36,7 +36,7 @@ export interface PlaybookPrompt {
   title: string;
   useCase: string;
   prompt: string;
-  careNotes: Partial<Record<CareKey, string>>;
+  ripeNotes: Partial<Record<RipeKey, string>>;
 }
 
 export interface Playbook {
@@ -60,7 +60,7 @@ export interface PracticeScenario {
   };
 }
 
-export interface CareAnalysis {
+export interface RipeAnalysis {
   present: boolean;
   quality: "none" | "weak" | "good" | "strong";
   snippet?: string;
@@ -68,7 +68,7 @@ export interface CareAnalysis {
 
 export interface PracticeFeedback {
   score: number;
-  careAnalysis: Record<CareKey, CareAnalysis>;
+  ripeAnalysis: Record<RipeKey, RipeAnalysis>;
   suggestions: string[];
   tier: "generic" | "adequate" | "excellent";
 }
@@ -87,7 +87,7 @@ export interface QuizQuestion {
   options: QuizOption[];
   correctAnswer: string;
   explanation: string;
-  concept: CareKey | "invention-ratio" | "safety";
+  concept: RipeKey | "invention-ratio" | "safety";
 }
 
 export interface QuizResult {

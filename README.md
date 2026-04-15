@@ -5,26 +5,26 @@ how to get real value out of AI in daily life, studies, and early career.
 
 Built for a 3-week workshop sprint across three squads:
 
-- 🏠 **Life Admin** — mental-load hacks, budgeting, planning
-- 📚 **Learning** — AI as a personal tutor, study habits, research
-- 💼 **Career** — resumes, LinkedIn, interview prep
-- 🙌 **Facilitators** — on-the-ground guides who run the workshop
+- **Life Admin** — mental-load hacks, budgeting, planning
+- **Learning** — AI as a personal tutor, study habits, research
+- **Career** — resumes, LinkedIn, interview prep
+- **Facilitators** — on-the-ground guides who run the workshop
 
-## The framework: CARE
+## The framework: RIPE
 
 We teach one mnemonic and stick to it.
 
-- **C** — Context: tell AI about you and your situation
-- **A** — Ask: say exactly what you want done
 - **R** — Role: tell AI who to be
+- **I** — Instructions: say exactly what you want done
+- **P** — Parameters: give AI your details (situation, constraints, goals)
 - **E** — Expected output: describe the shape of what you want back
 
 ## Pages
 
 - `/` — pick your squad, 60-second starter
-- `/care` — the CARE framework with an inline mini-builder
+- `/ripe` — the RIPE framework with an inline mini-builder
 - `/playbooks` — copy-paste prompts grouped by squad
-- `/practice` — write a prompt, get instant CARE feedback
+- `/practice` — write a prompt, get instant RIPE feedback
 - `/quiz` — 10-question knowledge check
 - `/safety` — privacy, hallucinations, academic-integrity rules
 - `/facilitators` — run-of-show, icebreakers, troubleshooting

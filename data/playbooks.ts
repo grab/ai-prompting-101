@@ -49,10 +49,10 @@ Please:
 - Pick the ONE thing I should start with in the next 30 minutes
 
 Keep it short and kind. No motivational fluff.`,
-        careNotes: {
+        ripeNotes: {
           role: "calm productivity coach, no judgement",
-          context: "user's real brain dump",
-          ask: "sort into 3 buckets + pick one starting task",
+          parameters: "user's real brain dump",
+          instructions: "sort into 3 buckets + pick one starting task",
           expected: "short, 3 buckets, no fluff",
         },
       },
@@ -70,10 +70,10 @@ Build me a 7-day plan that:
 - Has one "non-negotiable" task per day (not ten)
 
 Format as a table: Day / Must-do / Nice-to-do / Rest block.`,
-        careNotes: {
+        ripeNotes: {
           role: "rest-friendly planner",
-          context: "schedule + energy pattern",
-          ask: "weekly plan respecting real energy",
+          parameters: "schedule + energy pattern",
+          instructions: "weekly plan respecting real energy",
           expected: "table with 4 columns",
         },
       },
@@ -97,10 +97,10 @@ Give me:
 3. One "small win" I could try this week
 
 No shaming about takeaway coffee, please.`,
-        careNotes: {
+        ripeNotes: {
           role: "realistic budget coach",
-          context: "income + fixed costs + savings goal",
-          ask: "monthly split + 2 cuts + 1 small win",
+          parameters: "income + fixed costs + savings goal",
+          instructions: "monthly split + 2 cuts + 1 small win",
           expected: "numbered, practical, no shaming",
         },
       },
@@ -120,10 +120,10 @@ Write me 2 reply options:
 2. Direct version — still respectful but firmer
 
 Both under 80 words. Don't add guilt-trippy lines.`,
-        careNotes: {
+        ripeNotes: {
           role: "friend who's good with words",
-          context: "the original message + your real feelings",
-          ask: "two reply versions",
+          parameters: "the original message + your real feelings",
+          instructions: "two reply versions",
           expected: "2 options, under 80 words each",
         },
       },
@@ -141,10 +141,10 @@ Give me:
 - Prep time per meal (max 25 min each)
 
 Keep it chill — no 12-ingredient recipes.`,
-        careNotes: {
+        ripeNotes: {
           role: "friend who cooks cheap",
-          context: "budget + diet + equipment",
-          ask: "shopping list + 4 dinners + prep time",
+          parameters: "budget + diet + equipment",
+          instructions: "shopping list + 4 dinners + prep time",
           expected: "grouped list + 4 meals, ≤25 min each",
         },
       },
@@ -166,10 +166,10 @@ Then:
 - Ask me 2 quick questions to check I understood
 
 Keep the whole thing under 200 words. If I say "nope, still confused", try a different analogy.`,
-        careNotes: {
+        ripeNotes: {
           role: "patient tutor, analogies not jargon",
-          context: "short attention, no prior expertise",
-          ask: "explain + example + 2 check questions",
+          parameters: "short attention, no prior expertise",
+          instructions: "explain + example + 2 check questions",
           expected: "under 200 words, offer to retry",
         },
       },
@@ -190,10 +190,10 @@ Text to work with:
 """
 [paste your reading here]
 """`,
-        careNotes: {
+        ripeNotes: {
           role: "active study buddy",
-          context: "what you need to use the reading for",
-          ask: "TL;DR + concepts + quiz",
+          parameters: "what you need to use the reading for",
+          instructions: "TL;DR + concepts + quiz",
           expected: "5 bullets + 3 concepts + 5 questions",
         },
       },
@@ -213,10 +213,10 @@ Rules:
 - After 5 questions, tell me what I'm shaky on and what to revise.
 
 Start with question 1.`,
-        careNotes: {
+        ripeNotes: {
           role: "tutor running adaptive quiz",
-          context: "topic + current level",
-          ask: "one question at a time, 5 total, then feedback",
+          parameters: "topic + current level",
+          instructions: "one question at a time, 5 total, then feedback",
           expected: "interactive, with hints not handouts",
         },
       },
@@ -240,10 +240,10 @@ Essay:
 """
 [paste draft here]
 """`,
-        careNotes: {
+        ripeNotes: {
           role: "tough-but-fair tutor",
-          context: "course criteria + target grade",
-          ask: "strongest + weakest + fix + grade check",
+          parameters: "course criteria + target grade",
+          instructions: "strongest + weakest + fix + grade check",
           expected: "4 honest points",
         },
       },
@@ -261,10 +261,10 @@ Build me a plan that:
 - Includes 1 "make something real" project by week 4
 
 No 12-hour-a-day hustle culture vibes.`,
-        careNotes: {
+        ripeNotes: {
           role: "coach for self-taught beginners",
-          context: "skill, time per week, beginner",
-          ask: "4-week plan with milestones + resources + project",
+          parameters: "skill, time per week, beginner",
+          instructions: "4-week plan with milestones + resources + project",
           expected: "chill pace, weekly structure",
         },
       },
@@ -295,10 +295,10 @@ Rewrite my bullets so they:
 - Cut anything that doesn't matter for this role
 
 Give me the rewritten bullets only, in the same order. Flag any bullet that needs actual data from me to be honest.`,
-        careNotes: {
+        ripeNotes: {
           role: "recruiter at target company",
-          context: "job ad + current bullets",
-          ask: "rewrite bullets, flag honesty gaps",
+          parameters: "job ad + current bullets",
+          instructions: "rewrite bullets, flag honesty gaps",
           expected: "ordered rewritten list",
         },
       },
@@ -318,10 +318,10 @@ Write me a LinkedIn About section that:
 - Has a clear 'here's what I'm looking for' at the end
 
 No buzzwords like "passionate", "synergy", "results-driven".`,
-        careNotes: {
+        ripeNotes: {
           role: "branding coach, no fluff",
-          context: "what you do, aim, proud moments",
-          ask: "About section draft",
+          parameters: "what you do, aim, proud moments",
+          instructions: "About section draft",
           expected: "under 100 words, buzzword-free",
         },
       },
@@ -339,10 +339,10 @@ Draft a DM that:
 - Gives them an easy out if they can't reply
 
 Under 80 words. No "I hope this finds you well" openers.`,
-        careNotes: {
+        ripeNotes: {
           role: "experienced DM reviewer",
-          context: "target person + specific ask + your angle",
-          ask: "draft a DM",
+          parameters: "target person + specific ask + your angle",
+          instructions: "draft a DM",
           expected: "under 80 words, specific, easy out",
         },
       },
@@ -360,10 +360,10 @@ Ground rules:
 - Stop after 5 questions and give me an overall verdict: would you move me to the next round? Why / why not?
 
 Start with question 1.`,
-        careNotes: {
+        ripeNotes: {
           role: "hiring manager for target role",
-          context: "role + company type",
-          ask: "5 mock questions with feedback",
+          parameters: "role + company type",
+          instructions: "5 mock questions with feedback",
           expected: "one at a time, verdict at end",
         },
       },
@@ -381,10 +381,10 @@ Help me:
 3. Give me a reply for each response
 
 No pushy "demand what you're worth" energy — I want to keep the relationship good.`,
-        careNotes: {
+        ripeNotes: {
           role: "calm negotiation coach",
-          context: "offer + market research + leverage",
-          ask: "opening line + predicted responses + replies",
+          parameters: "offer + market research + leverage",
+          instructions: "opening line + predicted responses + replies",
           expected: "short, polite, 3 parts",
         },
       },
