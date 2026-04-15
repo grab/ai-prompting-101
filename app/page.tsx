@@ -25,9 +25,9 @@ export default function Home() {
             and the prompts that go with it.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link href="/care">
+            <Link href="/ripe">
               <Button size="lg">
-                Learn the CARE framework
+                Learn the RIPE framework
                 <ArrowRight size={18} className="ml-2" />
               </Button>
             </Link>
@@ -43,12 +43,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CARE preview */}
+      {/* RIPE preview */}
       <section className="py-12 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">
-              One idea. Four letters. <span className="text-rose-600">CARE.</span>
+              One idea. Four letters. <span className="text-rose-600">RIPE.</span>
             </h2>
             <p className="text-slate-600">
               Every good prompt has these. You'll learn them in under 5 minutes.
@@ -56,9 +56,9 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {[
-              { letter: "C", word: "Context", tagline: "Tell AI about you." },
-              { letter: "A", word: "Ask", tagline: "Say what you want." },
               { letter: "R", word: "Role", tagline: "Who should AI be?" },
+              { letter: "I", word: "Instructions", tagline: "Say what you want." },
+              { letter: "P", word: "Parameters", tagline: "Give AI your details." },
               { letter: "E", word: "Expected", tagline: "What you want back." },
             ].map(({ letter, word, tagline }, index) => {
               const gradients = [
@@ -154,9 +154,9 @@ export default function Home() {
           <div className="space-y-3">
             {[
               {
-                href: "/care",
+                href: "/ripe",
                 icon: Sparkles,
-                title: "Learn CARE",
+                title: "Learn RIPE",
                 desc: "The one framework that runs the show.",
               },
               {
@@ -215,7 +215,7 @@ export default function Home() {
 
       <footer className="py-10 px-4 sm:px-6 border-t border-rose-100 mt-10">
         <div className="max-w-4xl mx-auto text-center text-sm text-slate-500">
-          Built with CARE for the AI Workshop for Young Women.
+          Built with RIPE for the AI Workshop for Young Women.
         </div>
       </footer>
     </div>

@@ -64,7 +64,7 @@ function PromptCard({
         {prompt.prompt}
       </pre>
       <div className="mt-4 flex flex-wrap gap-2">
-        {Object.entries(prompt.careNotes).map(([key, note]) => (
+        {Object.entries(prompt.ripeNotes).map(([key, note]) => (
           <span
             key={key}
             className={`text-xs px-2.5 py-1 rounded-full ${accent.chip}`}
@@ -145,7 +145,7 @@ export default function PlaybooksPage() {
             Want to try writing your own?
           </h3>
           <p className="text-sm text-slate-600 mb-4">
-            Head to Practice — pick a scenario and get instant CARE feedback.
+            Head to Practice — pick a scenario and get instant RIPE feedback.
           </p>
           <a
             href="/practice"

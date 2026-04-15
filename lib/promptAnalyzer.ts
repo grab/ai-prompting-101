@@ -1,7 +1,54 @@
-import { CareAnalysis, CareKey, PracticeFeedback } from "@/types";
+import { RipeAnalysis, RipeKey, PracticeFeedback } from "@/types";
 
-// Indicators for each CARE component
-const contextIndicators = [
+// Indicators for each RIPE component
+const roleIndicators = [
+  "you are",
+  "act as",
+  "act like",
+  "be a",
+  "be an",
+  "be my",
+  "play a",
+  "pretend",
+  "imagine you",
+  "as a",
+  "coach",
+  "tutor",
+  "friend",
+  "mentor",
+  "recruiter",
+  "advisor",
+  "teacher",
+  "assistant",
+  "expert",
+  "role of",
+];
+
+const instructionsIndicators = [
+  "rewrite",
+  "draft",
+  "write",
+  "plan",
+  "list",
+  "quiz",
+  "explain",
+  "compare",
+  "summarise",
+  "summarize",
+  "suggest",
+  "give me",
+  "show me",
+  "turn this",
+  "help me with",
+  "build",
+  "create",
+  "review",
+  "fix",
+  "improve",
+  "tailor",
+];
+
+const parametersIndicators = [
   "my",
   "our",
   "i have",
@@ -30,53 +77,6 @@ const contextIndicators = [
   "goal",
 ];
 
-const askIndicators = [
-  "rewrite",
-  "draft",
-  "write",
-  "plan",
-  "list",
-  "quiz",
-  "explain",
-  "compare",
-  "summarise",
-  "summarize",
-  "suggest",
-  "give me",
-  "show me",
-  "turn this",
-  "help me with",
-  "build",
-  "create",
-  "review",
-  "fix",
-  "improve",
-  "tailor",
-];
-
-const roleIndicators = [
-  "you are",
-  "act as",
-  "act like",
-  "be a",
-  "be an",
-  "be my",
-  "play a",
-  "pretend",
-  "imagine you",
-  "as a",
-  "coach",
-  "tutor",
-  "friend",
-  "mentor",
-  "recruiter",
-  "advisor",
-  "teacher",
-  "assistant",
-  "expert",
-  "role of",
-];
-
 const expectedIndicators = [
   "bullet",
   "bullets",
@@ -102,7 +102,7 @@ const expectedIndicators = [
   "no longer than",
 ];
 
-function analyzeComponent(text: string, indicators: string[]): CareAnalysis {
+function analyzeComponent(text: string, indicators: string[]): RipeAnalysis {
   const lowerText = text.toLowerCase();
   const found = indicators.filter((i) => lowerText.includes(i.toLowerCase()));
 
@@ -116,7 +116,7 @@ function analyzeComponent(text: string, indicators: string[]): CareAnalysis {
   const end = Math.min(text.length, index + firstIndicator.length + 50);
   const snippet = text.slice(start, end).trim();
 
-  let quality: CareAnalysis["quality"] = "weak";
+  let quality: RipeAnalysis["quality"] = "weak";
   if (found.length >= 3) {
     quality = "strong";
   } else {
@@ -134,7 +134,7 @@ function analyzeComponent(text: string, indicators: string[]): CareAnalysis {
   };
 }
 
-const qualityScore: Record<CareAnalysis["quality"], number> = {
+const qualityScore: Record<RipeAnalysis["quality"], number> = {
   none: 0,
   weak: 10,
   good: 18,
@@ -142,38 +142,38 @@ const qualityScore: Record<CareAnalysis["quality"], number> = {
 };
 
 export function analyzePrompt(prompt: string): PracticeFeedback {
-  const context = analyzeComponent(prompt, contextIndicators);
-  const ask = analyzeComponent(prompt, askIndicators);
   const role = analyzeComponent(prompt, roleIndicators);
+  const instructions = analyzeComponent(prompt, instructionsIndicators);
+  const parameters = analyzeComponent(prompt, parametersIndicators);
   const expected = analyzeComponent(prompt, expectedIndicators);
 
   const score =
-    qualityScore[context.quality] +
-    qualityScore[ask.quality] +
     qualityScore[role.quality] +
+    qualityScore[instructions.quality] +
+    qualityScore[parameters.quality] +
     qualityScore[expected.quality];
 
   const suggestions: string[] = [];
-  if (!context.present) {
-    suggestions.push(
-      "Add some Context — who are you, what's your situation, what's the deadline?"
-    );
-  } else if (context.quality === "weak") {
-    suggestions.push("Make Context more concrete — add numbers, dates, or a real constraint.");
-  }
-
-  if (!ask.present) {
-    suggestions.push(
-      "Your Ask is vague — start with a verb (rewrite, plan, quiz, draft)."
-    );
-  }
-
   if (!role.present) {
     suggestions.push(
       "Give AI a Role — e.g., 'Act like a budget coach who's realistic not preachy'."
     );
   } else if (role.quality === "weak") {
     suggestions.push("Add a vibe to the Role — honest, gentle, blunt, playful.");
+  }
+
+  if (!instructions.present) {
+    suggestions.push(
+      "Your Instructions are vague — start with a verb (rewrite, plan, quiz, draft)."
+    );
+  }
+
+  if (!parameters.present) {
+    suggestions.push(
+      "Add some Parameters — who are you, what's your situation, what's the deadline?"
+    );
+  } else if (parameters.quality === "weak") {
+    suggestions.push("Make Parameters more concrete — add numbers, dates, or a real constraint.");
   }
 
   if (!expected.present) {
@@ -188,14 +188,14 @@ export function analyzePrompt(prompt: string): PracticeFeedback {
   if (score >= 70) tier = "excellent";
   else if (score >= 40) tier = "adequate";
 
-  const careAnalysis: Record<CareKey, CareAnalysis> = {
-    context,
-    ask,
+  const ripeAnalysis: Record<RipeKey, RipeAnalysis> = {
     role,
+    instructions,
+    parameters,
     expected,
   };
 
-  return { score, careAnalysis, suggestions, tier };
+  return { score, ripeAnalysis, suggestions, tier };
 }
 
 export function getScoreLabel(score: number): { label: string; color: string } {

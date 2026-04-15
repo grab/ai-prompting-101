@@ -1,4 +1,4 @@
-export { careSections, careOrder } from "./care";
+export { ripeSections, ripeOrder } from "./ripe";
 export { squads, playbooks } from "./playbooks";
 export { practiceScenarios, difficultyLabels } from "./practiceScenarios";
 export { quizQuestions, quizConfig } from "./quizQuestions";

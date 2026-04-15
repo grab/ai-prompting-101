@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 const navItems = [
-  { href: "/care", label: "CARE", icon: Sparkles },
+  { href: "/ripe", label: "RIPE", icon: Sparkles },
   { href: "/playbooks", label: "Playbooks", icon: BookHeart },
   { href: "/practice", label: "Practice", icon: FlaskConical },
   { href: "/quiz", label: "Quiz", icon: Brain },
@@ -34,7 +34,7 @@ export function Header() {
             </div>
             <div className="leading-tight">
               <div className="font-semibold text-slate-900 group-hover:text-rose-600 transition-colors">
-                AI, with CARE
+                AI, with RIPE
               </div>
               <div className="text-[10px] text-slate-400 uppercase tracking-wider">
                 Best Practice
