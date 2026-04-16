@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Brain,
@@ -229,9 +230,9 @@ export default function QuizPage() {
               <RotateCcw size={14} className="mr-2" />
               Retake
             </Button>
-            <a href="/ripe">
+            <Link href="/ripe">
               <Button variant="ghost">Review RIPE</Button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
