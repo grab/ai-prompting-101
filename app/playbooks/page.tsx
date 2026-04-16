@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Copy, Check } from "lucide-react";
 import { squads, playbooks } from "@/data";
 import { Card, Badge, Button } from "@/components/ui";
@@ -147,12 +148,12 @@ export default function PlaybooksPage() {
           <p className="text-sm text-slate-600 mb-4">
             Head to Practice — pick a scenario and get instant RIPE feedback.
           </p>
-          <a
+          <Link
             href="/practice"
             className="inline-flex items-center gap-1 text-rose-600 font-medium hover:text-rose-800"
           >
             Go to practice →
-          </a>
+          </Link>
         </div>
       </div>
     </div>
