@@ -17,7 +17,7 @@ deploy:
     - git init
     - git add -A
     - git commit -m "Deploy to GitHub Pages"
-    - git push --force "https://oauth2:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" HEAD:gh-pages
+    - git push --force "https://oauth2:${GL_PUSH_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" HEAD:gh-pages
   only:
     - master
     - main
