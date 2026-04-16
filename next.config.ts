@@ -1,9 +1,11 @@
 import type { NextConfig } from "next";
 
+const basePath = process.env.NEXT_BASE_PATH || "";
+
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: "/ai-prompting-bestpractice",
-  assetPrefix: "/ai-prompting-bestpractice",
+  basePath,
+  assetPrefix: basePath,
   images: {
     unoptimized: true,
   },
